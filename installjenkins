@@ -11,6 +11,10 @@
 
 ->sudo dnf install jenkins #it will install jenkins
 
+#change permissons of /var/lib/jenkins 
+
+-> sudo chown -R cloud_user:cloud_user /var/lib/jenkins
+
 
 #change default user that runs jenkins from jenkins user to cloud_user
 ->sudo vi /etc/systemd/system/jenkins.service
@@ -28,4 +32,5 @@ User=cloud_user
 #jenkins stop,status and start
 
 ->sudo systemctl (stop|status|start) jenkins
+
 

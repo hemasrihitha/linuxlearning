@@ -1,0 +1,15 @@
+#install apache/httpd on linux
+
+- > sudo dnf install -y httpd
+
+#enable httpd as a service so it can automatically restart apache/httpd when the system starts
+
+-> systemctl enable httpd
+
+#stop, start,status and restart apache 
+
+-> systemctl (stop|restart|start|status) httpd
+
+#default directory for copying static content
+
+/var/www/html/

@@ -18,7 +18,7 @@
 #step7:
 -> sudo dnf config-manager --add-repo https://pkg.jenkins.io/redhat-stable/jenkins.repo   #Adds the official Jenkins repository to the package manager's sources.
 #step8:
--> sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key  #Imports the Jenkins GPG key to verify package authenticity.
+->sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key  #Imports the Jenkins GPG key to verify package authenticity.
 #step9:
 -> sudo dnf install jenkins -y #install jenkins
 #step10:

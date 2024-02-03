@@ -1,0 +1,31 @@
+# instll jenkins with java and run the jenkins service as cloud_user instend of the default jenkins user
+
+-> sudo dnf update #updat the operating systems
+	->sudo dnf install java-11-openjdk-devel #install java 11 
+
+#import liences of the jenkins as it is the private software
+-> sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+
+-> sudo dnf config-manager --add-repo https://pkg.jenkins.io/redhat-stable/jenkins.repo #we are pointing dnf to use external repo to download packages as this is not availabe directly with rocky linux
+
+->sudo dnf install jenkins #it will install jenkins
+
+
+#change default user that runs jenkins from jenkins user to cloud_user
+->sudo vi /etc/systemd/system/jenkins.service
+
+# Before:
+User=jenkins
+
+# After:
+User=cloud_user 
+# start the application 
+-> sudo systemctl start jenkins
+
+->sudo systemctl enable jenkins #enable jenkins
+
+#jenkins stop,status and start
+
+->sudo systemctl (stop|status|start) jenkins
+

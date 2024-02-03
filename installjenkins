@@ -31,3 +31,8 @@ step13:
 -> sudo firewall-cmd --reload #Reloads the firewall configuration to apply the changes.
 
 Note: add jenkins to visudo and give permissons as "ROOT"
+-> sudo visudo
+-> jenkins ALL=(ALL) ALL
+#install firwall
+->sudo dnf install -y firewalld
+

@@ -1,36 +1,38 @@
-# instll jenkins with java and run the jenkins service as cloud_user instend of the default jenkins user
+# install jenkins with java and run the jenkins service as cloud_user instend of the default jenkins user
+#step -1:
+->sudo groupadd jenkins #Creates a new group named "jenkins" to manage permissions for the Jenkins user and processes.
+#step2:
+-> sudo su - #Switches to the root user for administrative privileges.
+#step3:
+-> sudo useradd -m -g jenkins -s /bin/bash jenkins
+#Creates a new user named "jenkins":
+#-m: Creates a home directory for the user.
+#-g jenkins: Assigns the user to the "jenkins" group.
+#-s /bin/bash: Sets the default shell to Bash.
+#step4:
+->sudo passwd jenkins  #sudo passwd jenkins
+#step5:
+->sudo su - jenkins #Switches to the "jenkins" user for subsequent commands.
+#step6:
+->sudo dnf install java-11-openjdk-devel -y  #Installs the Java Development Kit (JDK) version 11, required for running Jenkins.
+#step7:
+-> sudo dnf config-manager --add-repo https://pkg.jenkins.io/redhat-stable/jenkins.repo   #Adds the official Jenkins repository to the package manager's sources.
+#step8:
+->sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key  #Imports the Jenkins GPG key to verify package authenticity.
+#step9:
+-> sudo dnf install jenkins -y #install jenkins
+#step10:
+-> sudo systemctl start jenkins #Starts the Jenkins service.
+step11:
+-> sudo systemctl enable jenkins #Enables the Jenkins service to start automatically at boot.
+step12:
+-> sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp #Opens port 8080 in the firewall to allow access to the Jenkins web interface
+step13:
+-> sudo firewall-cmd --reload #Reloads the firewall configuration to apply the changes.
 
--> sudo dnf update #updat the operating systems
-	->sudo dnf install java-11-openjdk-devel #install java 11 
-
-#import liences of the jenkins as it is the private software
--> sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-
-
--> sudo dnf config-manager --add-repo https://pkg.jenkins.io/redhat-stable/jenkins.repo #we are pointing dnf to use external repo to download packages as this is not availabe directly with rocky linux
-
-->sudo dnf install jenkins #it will install jenkins
-
-#change permissons of /var/lib/jenkins 
-
--> sudo chown -R cloud_user:cloud_user /var/lib/jenkins
-
-
-#change default user that runs jenkins from jenkins user to cloud_user
-->sudo vi /etc/systemd/system/jenkins.service
-
-# Before:
-User=jenkins
-
-# After:
-User=cloud_user 
-# start the application 
--> sudo systemctl start jenkins
-
-->sudo systemctl enable jenkins #enable jenkins
-
-#jenkins stop,status and start
-
-->sudo systemctl (stop|status|start) jenkins
-
+Note: add jenkins to visudo and give permissons as "ROOT"
+-> sudo visudo
+-> jenkins ALL=(ALL) ALL
+#install firwall
+->sudo dnf install -y firewalld
 

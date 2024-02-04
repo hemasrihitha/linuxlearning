@@ -6,4 +6,5 @@
 #the default location of apache to serve static content is /var/www/html
 #we can generate ssl certificate and install the certificats on our apache server to serve content on https. You can create ssl conf and add the certificate location info
 #apache has a modules directory that can enable it to connect to backend servers like tomcat, weblogic, jboss application servers
-#we can also use apache to poxy request to another subdomain and serve the request from there. Apache can also use to redirect 
+#we can also use apache to poxy request to another subdomain and serve the request from there. Apache can also use to redirect
+#the default port of apache is port:80 for http requests and port:443 for https requests

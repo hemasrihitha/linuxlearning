@@ -28,3 +28,7 @@
 
 #virtualhost on port 80 is configured with server name "srihith.com" and server alis=as name as "www.srihitha.com" and server the conent from /var/www/html
 #also configured error logs and access logs
+
+Note: #references
+->https://community.letsencrypt.org/t/wordpress-multisite-with-mapped-domains/170725
+->https://www.atlantic.net/vps-hosting/how-to-install-symfony-framework-on-centos-8/

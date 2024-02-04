@@ -8,3 +8,23 @@
 #apache has a modules directory that can enable it to connect to backend servers like tomcat, weblogic, jboss application servers
 #we can also use apache to poxy request to another subdomain and serve the request from there. Apache can also use to redirect
 #the default port of apache is port:80 for http requests and port:443 for https requests
+
+<VirtualHost *:80>
+    ServerName srihitha.com
+    ServerAlias www.srihitha.com
+
+    DocumentRoot /var/www/html/index.html
+
+    <Directory /var/www/html/index.html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/httpd/srihitha.com-error.log
+    CustomLog /var/log/httpd/srihitha.com-access.log combined
+</VirtualHost>
+
+
+#virtualhost on port 80 is configured with server name "srihith.com" and server alis=as name as "www.srihitha.com" and server the conent from /var/www/html
+#also configured error logs and access logs

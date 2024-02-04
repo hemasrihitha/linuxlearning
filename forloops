@@ -1,0 +1,1 @@
+->for server in `cat remotehost`; do scp -rp index.html cloud_user@$remotehost:/var/www/html;done

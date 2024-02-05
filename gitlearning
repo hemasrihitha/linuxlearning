@@ -1,3 +1,7 @@
+#configur username and email:
+->git config --global user.name "$USER"
+->git config --global user.email "$EMAIL"
+
 #copy ssh keys of localmachine in github ssh section to enable password less cloning of git repo 
 
 

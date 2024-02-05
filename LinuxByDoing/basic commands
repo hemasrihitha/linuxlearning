@@ -1,0 +1,4 @@
+sed- stream editor usage
+sed -ie 's/existingname/newname/g' $filename #interact#edit#save
+scp - secure copy useage
+scp -rp $fileorfolder $user@$hostname:/$PATHTODIRECTORY

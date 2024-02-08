@@ -1,0 +1,38 @@
+Update the Jenkins Plugins and Configure the Maven Installer
+
+Navigate to the public IP address and specify port 8080.
+
+Update the Jenkins Plugins
+
+Click the bell icon.
+Click Apply Migration.
+Choose Manage Jenkins.
+Choose Go to plugin manager.
+Select all and click Update.
+Check Restart Jenkins when installation is complete and no jobs are running once all items have been marked for action.
+Reconnect to Jenkins.
+Configure the Maven Installer
+
+Navigate to Manage Jenkins and click Tools.
+Scroll down to Maven installations and add a new one.
+The Maven installation should be named M3.
+Create a new Maven installation and set it to install automatically.
+
+Configure the Build to Use Maven and Make the Index File
+
+Create a new Freestlye Project called mavenproject.
+
+Update the source code management to use the Git repository provided in the lab instructions.
+
+Add and configure a build step for top-level Maven components.
+
+Configure M3 as the Maven server and set the Goals to clean package.
+
+Configure a build step to run the following go command:
+
+bin/makeindex
+Add a post-build step to archive the artifacts.
+
+Fingerprint all archived artifacts and set the file to index.jsp.
+
+Run the build and verify that the index.jsp is in the root of the directory.

@@ -7,3 +7,7 @@ $ - End of line
 [abc] - Any one character of a, b, or c
 [^abc] - Any one character except a, b, or c
 (xyz) - A group that can be referred to with backreferences
+
+if [[ $input =~ ^Hello ]]; then
+  echo "Starts with Hello"
+fi

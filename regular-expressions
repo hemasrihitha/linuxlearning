@@ -25,3 +25,4 @@ if [[ -n $name ]]; then
 else
     echo "You didn't enter a name."
 fi
+:%s/\/c\/Users\/srihi/\/home\/cloud_user/g #to escape a forwar / which is special character you negate that with backward \

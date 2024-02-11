@@ -11,3 +11,17 @@ $ - End of line
 if [[ $input =~ ^Hello ]]; then
   echo "Starts with Hello"
 fi
+
+
+#copy this this to .sh
+$ cat ifelse-loop.sh
+#!/bin/bash
+#prompt the user input
+echo "please enter your name"
+read name
+
+if [[ -n $name ]]; then
+    echo "Hello, $name!"
+else
+    echo "You didn't enter a name."
+fi

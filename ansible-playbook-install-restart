@@ -1,4 +1,4 @@
-#install, start, enable, stop, and delete service 
+#install, start, enable
 ---
 - name: Example playbook with tagged tasks
   become: yes

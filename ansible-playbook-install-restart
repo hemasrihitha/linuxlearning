@@ -1,0 +1,26 @@
+#install, start, enable, stop, and delete service 
+---
+- name: Example playbook with tagged tasks
+  become: yes
+  hosts: web
+  tasks:
+    - name: Install Apache HTTP server
+      yum:
+        name: httpd
+        state: present
+      
+
+
+    - name: Start and enable Apache HTTP server
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      
+
+
+#commands to run the playbook with host as web before running the actual command please ensure that you are running in the correct host
+
+-> ansible-playbook -i inventory_file_name playbook-file-name --list-hosts 
+example: ansible-playbook -i deployserver tag_apache.yml --list-hosts 
+

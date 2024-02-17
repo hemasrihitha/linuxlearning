@@ -1,0 +1,22 @@
+#playbook to stop apache and update httpd
+
+---
+- name: stop and remove Apache HTTP server
+  become: yes
+  hosts: web
+  tasks:
+    - name: Ensure httpd service is disabled and stopped
+      service:
+        name: httpd
+        state: stopped
+        enabled: no
+      
+
+    - name: delete httpd package
+      package:
+        name: httpd
+        state: absent
+
+
+-> ansible-playbook -i inventory-file playbook-filename.yml --list-hosts #before running ensure to not run on the wrong host
+-> ansible-playbook -i inventory-file playbook-filename.yml

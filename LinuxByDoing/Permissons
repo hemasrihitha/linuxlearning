@@ -7,3 +7,6 @@
 #it will assign all the permissons rwx for user, group, and others
 -> sudo chmod 666 /path/filename
 #it will have read adn write permissons for user.group, and others
+
+#if we wants to change all the permissons for all the files in a folder to unly read and write then
+->sudo chmod -f 666 -R *

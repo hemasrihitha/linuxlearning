@@ -1,0 +1,51 @@
+#created a two users named rat and cockroch 
+#rat is assigned to the wheel supplymentry group
+#cockroch is assigned to do web administrator tasks
+
+->  sudo useradd -m rat  
+
+#useradd: This is a command-line tool used for creating new user accounts on Unix-like systems.
+#-m: This option tells useradd to create a home directory for the new user.
+#gfreeman: This is the username you want to create.
+
+-> sudo useradd -G wheel -m cockroch
+
+#-G wheel: This adds the new user to the "wheel" group, which typically grants administrative privileges on Unix-like systems.
+#-m: This creates a home directory for the new user.
+
+# Set the password for both accounts
+-> sudo passwd rat
+-> sudo passwd cockroch
+
+->sudo su - cockroch #as a rat is in wheel group this will have some privilege access
+#sudo: This indicates you're requesting to run the command with administrative privileges (root access).
+#su: This is a command-line tool used to switch to a different user account.
+#-: This option tells su to run the shell as the specified user.
+#rat: This is the username of the account you want to switch to.
+
+#wheel group have privileges like
+#Full system access: "cockroch" can potentially access and modify any file or system setting on your device. This includes deleting critical files, installing harmful software, and compromising system security.
+#User management: They can create, modify, or delete user accounts, including granting or revoking other users' administrative privileges.
+#Process control: They can stop, start, or manipulate any running process on the system, potentially impacting system stability or interfering with other users' work.
+#Network access: They can manage network settings, configure firewalls, and potentially access or expose sensitive data over the network.
+
+
+#Now we need to configure rat account to have the ability to restart or reload the web server when needed. 
+#Since he will be the webmaster, he needs sudo permissions to restart the service.
+
+#create a new sudoers file in the /etc/sudoers.d named web_admin
+
+-> sudo visudo -f /etc/sudoers.d/web_admin
+#add 
+-> Cmnd_Alias  WEB = /bin/systemctl restart httpd.service, /bin/systemctl reload httpd.service
+   rat ALL=WEB
+
+#now go to rat user using command
+-> sudo su - rat
+then execute commands which are in web_admin folder only commands which are in web_admin will execute it wont execute any other commands
+
+
+
+
+
+

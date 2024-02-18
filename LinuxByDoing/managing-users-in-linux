@@ -1,0 +1,35 @@
+#creating users
+-> useradd lion
+-> useradd tiger
+-> useradd monkey
+-> useradd fox
+
+#Create a group called family
+-> groupadd family # will create a group called family
+
+#adding srihitha to the wheel group from primiry group
+-> usermod -g wheel lion #check the user info after executing this command
+
+#explanation
+#usermod: This is a command-line tool used for modifying user account information on Unix-like systems.
+#-g wheel: This option specifies that you want to change the user's primary group. In this case, the group being assigned is "wheel".
+#lion: This is the username of the account you want to modify.
+
+# "id lion" is used to check user information, it will typically display the following details about the user lion
+
+#adding users to a group called "family"
+-> usermod -aG family lion
+-> usermod -aG family tiger
+-> usermod -aG family monkey
+-> usermod -aG family fox
+
+#usermod: This is a command-line tool used for modifying user account information on Unix-like systems.
+#-aG: This option tells usermod to add the user to an additional group. The "a" stands for "append", meaning the user will be added to the specified group without removing them from any existing groups.
+#family: This is the name of the group you want to add the user to.
+#lion: This is the username of the account you want to modify.
+
+#Lock the user 
+-> usermod -L tiger
+#usermod: This is a command-line tool used to modify user account information on Unix-like systems.
+#-L: This option tells usermod to lock the user account.
+#tiger: This is the username of the account you want to modify.

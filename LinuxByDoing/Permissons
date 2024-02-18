@@ -1,0 +1,9 @@
+#how to assign permissions 
+# Read (r): 4
+# Write (w): 2
+# Execute (x): 1
+
+-> sudo chmod 777 /path/filename
+#it will assign all the permissons rwx for user, group, and others
+-> sudo chmod 666 /path/filename
+#it will have read adn write permissons for user.group, and others

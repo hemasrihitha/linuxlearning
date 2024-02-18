@@ -1,0 +1,38 @@
+#Knowing differnt compressing methods and commands
+-> 1. gzip
+-> 2. bzip2
+-> 3. xz
+
+  #consider a scenario where we have to compress a file 
+  #commands for compressing and decompressing files
+  -> gzip $filename #compressing the file
+  -> gunzip $compressed_filename #decompressing the file
+
+  #using bzip2
+-> bzip2 $filename #compressing
+-> bunzip2 $compressed_filename #decompressing
+
+#using xz
+-> xz $filename
+-> unxz $compressed_filename
+
+#in my opinion bzip2 is the efficent way to compress
+
+# Create tar files using the different compression methods.
+#for gzip
+->tar -cvzf gztar.tar.gz $filename
+#for bzip2
+-> tar -cvjf bztar.tar.bz2 $filename
+#for xz
+-> tar -cvJf xztar.tar.xz $filename
+
+#read compressed files, without decompressing
+
+-> tar -cvzf $filename.tar.gz $filename #we are compressing a file with gzip algoritham and reading the file with out unzip it
+-> zcat $filename.tar.gz #for gzip
+
+-> tar -cvjf $filename.tar.bz2 $filename_you_want_compress #usingbzip algoritham
+-> bzcat $filename.tar.bz2
+
+-> tar -cvJf $filename.tar.xz $filename_you_want_compress #using xz algoritham
+-> xzcat $filename.tar.xz

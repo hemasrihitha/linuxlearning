@@ -1,5 +1,0 @@
--> Created a free-style jenkins project by clicking "New Item"
--> Configered https github url and created new credientials with username and password (Github). Which clone git repo during build to the jenkins work space.
--> specifiy the branch that need to be build
--> Configered build trigger with option to build it perodicaly ( * * * * *, * 5 * * *(config at 5 AM), * 17 * * *(config ay 5pm))
--> Added a build step to execute shell that copies static content on all the web servers to /var/www/html/

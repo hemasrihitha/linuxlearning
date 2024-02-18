@@ -1,0 +1,12 @@
+#two types of links
+1. symbolic link
+2. Hard link
+
+#Create symbolic link 
+-> ln -s /path/filename /path/filename
+
+#create hard link
+-> ln /path/filename /path/filename
+
+#how to check Inode numbere of the link
+-> ls -i path/filename

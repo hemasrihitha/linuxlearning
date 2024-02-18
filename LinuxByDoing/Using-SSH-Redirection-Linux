@@ -1,0 +1,20 @@
+#generate SSH keys
+-> ssh-keygen
+-> ssh-copy-id $IPAddress
+#Example ssh-copy-id cloud_user@10.0.1.240
+#This is how we will generate ssh key and copy to the server using its ip address and this will provide us the passwordless login to the server
+
+#how to copy files from one server to another server (Server1 to server2)
+-> scp *.gz $IPADDRESS:~/
+#scp means secure copy it is sused to copy files from one machine to another machine.
+#*.gz file that ends with .gz 
+#:~/ copied files will be saved in that location of the server2(if we copied from server1 to server2)
+
+#how to copy output of the command into a file 
+-> tar -xvf deploy_content.tar.gz >> tar-output.log
+#  the above comamnd will execte this command "tar -xvf deploy_content.tar.gz" and output will be apended to the tar-output.log
+#tar: This is the command used for manipulating archive files like tarballs.
+#-x: This option tells tar to extract the files from the archive.
+#v: This option enables verbose mode, which means tar will print information about each file it extracts to the console.
+#f: This option specifies the archive file to operate on, which in this case is deploy_content.tar.gz
+
